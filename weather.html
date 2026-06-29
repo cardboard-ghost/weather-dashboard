@@ -7,7 +7,14 @@
     <link rel="stylesheet" href="styleweather.css">
 </head>
 <body>
-    <h1>Lausanne</h1>
+
+    <!--faut clean le classs et id de select là on se perd (surtout vu comment ils sont définis dans le script)-->
+    
+    <select id="localisation">
+        <option value="">-select city-</option>
+        <option value="Lausanne">Lausanne</option>
+        <option value="Louvain-la-Neuve">Louvain-la-Neuve</option>
+    </select>
     <img id="weathericon"/>
     <div id="description"> loading... </div>
     <div id="tempblock"> loading... </div>
@@ -17,6 +24,23 @@
         fetch("https://api.openweathermap.org/data/2.5/forecast?lat=46.516&lon=6.63282&units=metric&lang=fr&appid=cc9ff53426af862d3e856f52b06f95df")
             .then (response => response.json())
             .then (data => {
+                // trouve la liste de sélection de localisation
+                const choixlocalisation = document.getElementById("localisation");
+                // écoute les changements (sélections) dans la liste de sélection de localisation
+                choixlocalisation.addEventListener("change", () =>{
+                    // définition d'une const qui correspond à la localisation sélectionnée dans la liste par l'user
+                    const localisation = choixlocalisation.value;
+                    //la function afficherMeteo n'est appelée que si la const localisation n'est pas vide (=si l'user n'a rien sélectionné, la const est vide donc la fonction n'est pas appelée )
+                    if (localisation !== "") {
+                            afficherMeteo(localisation);
+                    }
+                });
+                // définition d'une fonction qui affiche les données de l'api en fonctione de la const localisation 
+                async function afficherMeteo(localisation) {
+                 console.log(`recherche de la météo pour ${localisation}`) 
+                 //requete api est faite
+                 //il faut afficher l'icone, la description et la température
+                }
                 // looks for the icon code in the api response and puts the code in the generic image url of openweather to get the complete url of the image
                 const iconcode = data.list[0].weather[0].icon;
                 const icon = "https://openweathermap.org/img/wn/"+iconcode+"@2x.png";

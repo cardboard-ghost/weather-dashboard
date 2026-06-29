@@ -1,17 +1,23 @@
 body {
-    background-color: #dcf5fa;
+    background-color: #faf9ac;
     font-family: fantasy;
 }
 
-#weathericon{
+#localisation{
+    
+}
 
+#weathericon{
+    display:block;
+    margin-top:15px;
 }
 
 #description {
-
+background-color: aliceblue;
+/*voir comment aligner plus au centre/disposer de manière générale*/
 }
 
 #tempblock{
-
+background-color: beige;
 }
 
