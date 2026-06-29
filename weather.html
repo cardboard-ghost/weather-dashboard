@@ -7,18 +7,19 @@
     <link rel="stylesheet" href="styleweather.css">
 </head>
 <body>
-    <button id="button"onclick="showweather()"> météo lausanne</button>
+    <h1>Lausanne</h1>
+    <p id="textblock" > loading... </p>
         <script>
             // fetch the first data from the api (what weather: clouds, sunny, rain, ect)
             // takes the response from the api and turns it into json (javascript) and then checks the first weather in the list and logs it in the console
-           function showweather () {fetch("https://api.openweathermap.org/data/2.5/forecast?lat=46.516&lon=6.63282&units=metric&lang=fr&appid=cc9ff53426af862d3e856f52b06f95df")
+        fetch("https://api.openweathermap.org/data/2.5/forecast?lat=46.516&lon=6.63282&units=metric&lang=fr&appid=cc9ff53426af862d3e856f52b06f95df")
             .then (response => response.json())
             .then (data => {
                 //changed data.list[0].weather[0].main to .description to test the language parameters of the api
                 const weather = data.list[0].weather[0].description;
-                // finds the button (with the id "button" we defined) and changes its text from météo lausanne to the const weather)
-                document.getElementById("button").textContent = weather;
-                });
-            }
+                // finds the paragraph (with the id "textblock" we defined) and changes its text from loading... to the const weather)
+                document.getElementById("textblock").textContent = weather;
+                })
+
         </script>
 </html>
