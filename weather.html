@@ -8,21 +8,27 @@
 </head>
 <body>
     <h1>Lausanne</h1>
-    <p id="textblock" > loading... </p>
-    <p id="tempblock"> loading... </p>
+    <img id="weathericon"/>
+    <div id="description"> loading... </div>
+    <div id="tempblock"> loading... </div>
         <script>
             // fetch the first data from the api (what weather: clouds, sunny, rain, ect)
             // takes the response from the api and turns it into json (javascript) and then checks the first weather in the list and logs it in the console
         fetch("https://api.openweathermap.org/data/2.5/forecast?lat=46.516&lon=6.63282&units=metric&lang=fr&appid=cc9ff53426af862d3e856f52b06f95df")
             .then (response => response.json())
             .then (data => {
+                // looks for the icon code in the api response and puts the code in the generic image url of openweather to get the complete url of the image
+                const iconcode = data.list[0].weather[0].icon;
+                const icon = "https://openweathermap.org/img/wn/"+iconcode+"@2x.png";
                 //changed data.list[0].weather[0].main to .description to test the language parameters of the api
                 const weather = data.list[0].weather[0].description;
                 const temp = data.list[0].main.temp;
-                //rounds up the number (1=1 après la virgule, 0=0 après la virgule)
+                // rounds up the number (1=1 après la virgule, 0=0 après la virgule)
                 const formattedtemp = Number(temp).toFixed(0).replace('.', ',');
+                // selects the <img> and changes its source with the const icon we defined earlier
+                document.querySelector("img").src = icon 
                 // finds the paragraph (with the id "textblock" we defined) and changes its text from loading... to the const weather)
-                document.getElementById("textblock").textContent = weather;
+                document.getElementById("description").textContent = weather;
                 document.getElementById("tempblock").textContent = formattedtemp + "°";
                 })
         </script>
