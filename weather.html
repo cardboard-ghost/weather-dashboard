@@ -18,16 +18,12 @@
             .then (data => {
                 //changed data.list[0].weather[0].main to .description to test the language parameters of the api
                 const weather = data.list[0].weather[0].description;
+                const temp = data.list[0].main.temp;
+                //rounds up the number (1=1 après la virgule, 0=0 après la virgule)
+                const formattedtemp = Number(temp).toFixed(0).replace('.', ',');
                 // finds the paragraph (with the id "textblock" we defined) and changes its text from loading... to the const weather)
                 document.getElementById("textblock").textContent = weather;
-                })
-            fetch("https://api.openweathermap.org/data/2.5/forecast?lat=46.516&lon=6.63282&units=metric&lang=fr&appid=cc9ff53426af862d3e856f52b06f95df")
-            .then (response => response.json())
-                .then (data => {
-                const temp = data.list[0].main.temp;
-                const formattedtemp = Number(temp).toFixed(0).replace('.', ',');
                 document.getElementById("tempblock").textContent = formattedtemp + "°";
-            })
-
+                })
         </script>
 </html>
