@@ -9,6 +9,7 @@
 <body>
     <h1>Lausanne</h1>
     <p id="textblock" > loading... </p>
+    <p id="tempblock"> loading... </p>
         <script>
             // fetch the first data from the api (what weather: clouds, sunny, rain, ect)
             // takes the response from the api and turns it into json (javascript) and then checks the first weather in the list and logs it in the console
@@ -20,6 +21,13 @@
                 // finds the paragraph (with the id "textblock" we defined) and changes its text from loading... to the const weather)
                 document.getElementById("textblock").textContent = weather;
                 })
+            fetch("https://api.openweathermap.org/data/2.5/forecast?lat=46.516&lon=6.63282&units=metric&lang=fr&appid=cc9ff53426af862d3e856f52b06f95df")
+            .then (response => response.json())
+                .then (data => {
+                const temp = data.list[0].main.temp;
+                const formattedtemp = Number(temp).toFixed(0).replace('.', ',');
+                document.getElementById("tempblock").textContent = formattedtemp + "°";
+            })
 
         </script>
 </html>
