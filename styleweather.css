@@ -4,7 +4,8 @@ body {
 }
 
 #localisation{
-    
+    display: flex;
+    justify-content: center;
 }
 
 #weathericon{
@@ -13,11 +14,17 @@ body {
 }
 
 #description {
+    width: min-content;
+    display: flex;
+    justify-content: center;
 background-color: aliceblue;
 /*voir comment aligner plus au centre/disposer de manière générale*/
 }
 
 #tempblock{
+    width: min-content;
+     display: flex;
+    justify-content: center;
 background-color: beige;
 }
 
