@@ -9,31 +9,43 @@ body {
     background-color: #f5f5f5;
     font-family:"terminal";
     font-size:x-large;
+    width:400px;
+    height:140px;
 }
 
 #localisation{
-    display: flex;
-    justify-content: center;
+    display:block;
+    margin-left:auto;
+    margin-right:auto;
+    font-family: "terminal";
+    font-size: medium;
+    background-color:cornsilk;
+    border-radius: 10%;
+    border-color: #f5f5f5;
 }
 
 #weathericon{
     display:block;
-    margin-top:15px;
-    block-size: 100px;
+    margin-left:auto;
+    margin-right:auto;
+    width:25%;
 }
 
 #description {
-    width: min-content;
-    display: flex;
-    justify-content: center;
-background-color: aliceblue;
-/*voir comment aligner plus au centre/disposer de manière générale*/
+    display:flex;
+    /*centre horizontalement*/
+    justify-content:center;
+    /*centre verticalement*/
+    align-items:center;
+    background-color: aliceblue;
 }
 
 #tempblock{
-    width: min-content;
-     display: flex;
-    justify-content: center;
-background-color: beige;
+    display:flex;
+    /*centre horizontalement*/
+    justify-content:center;
+    /*centre verticalement*/
+    align-items:center;
+    background-color: beige;
 }
 
