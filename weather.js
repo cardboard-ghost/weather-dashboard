@@ -13,6 +13,7 @@
                  //requete api est faite mais pour lausanne spécifiquement pour le moment
                  // il faudrait fetch avec un lien qui adapte lat et lon en fonction de la localisation : quand la valeur est Lausanne, fetch le lien actuel et même chose avec Louvain-la-Neuve (c'est très manuel mais ça va pour le moment)
                  if(localisation == "Lausanne") {
+                  document.querySelector("img").setAttribute("id", "weathericon")
                     // fetch the data from the api (what weather: clouds, sunny, rain, ect)
                      // takes the response from the api and turns it into json (javascript) and then checks the first weather in the list and logs it in the console
                      fetch("https://api.openweathermap.org/data/2.5/forecast?lat=46.516&lon=6.63282&units=metric&lang=fr&appid=cc9ff53426af862d3e856f52b06f95df")
@@ -35,13 +36,15 @@
                     })
                  }
                  if(localisation == "Louvain-la-Neuve") {
+                  // trouve la balise image dans l'html et remplace son id par "weathericon". un seul id admis par balise. il faut repeter la ligne pour chaque if (sinon c'est celui qui a été set la dernière fois qui est utilisé, ne reviendra pas par défaut à l'id de base dans l'html)
+                  document.querySelector("img").setAttribute("id", "weathericon")
                     // fetch the data from the api (what weather: clouds, sunny, rain, ect)
                      // takes the response from the api and turns it into json (javascript) and then checks the first weather in the list and logs it in the console
                      fetch("https://api.openweathermap.org/data/2.5/forecast?lat=50.66829&lon=4.61443&units=metric&lang=fr&appid=cc9ff53426af862d3e856f52b06f95df")
                     .then (response => response.json())
                     .then (data => {
                 
-                     // looks for the icon code in the api   response and puts the code in the generic image url of openweather to get the complete url of the image
+                     // looks for the icon code in the api response and puts the code in the generic image url of openweather to get the complete url of the image
                     const iconcode = data.list[0].weather[0].icon;
                     const icon = "https://openweathermap.org/img/wn/"+iconcode+"@2x.png";
                      //changed data.list[0].weather[0].main to .description to test the language parameters of the api
@@ -57,7 +60,8 @@
                     })
                  }
                  if (localisation ==""){
-                    document.querySelector("img").src="/assets/loading-75-3215269389.gif"
+                  document.querySelector("img").setAttribute("id", "loadicon")
+                    document.querySelector("img").src="assets/9.gif"
                     document.getElementById("description").textContent="looking for something?"
                     document.getElementById("tempblock").textContent="select a city"
                  }
