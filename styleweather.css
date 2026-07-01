@@ -6,46 +6,91 @@
 }
 
 body {
-    background-color: #f5f5f5;
+    background-color: #a79279;
+
     font-family:"terminal";
     font-size:x-large;
-    width:400px;
-    height:140px;
+}
+
+#mainwindow{
+    /*c'est quoi?*/
+    width:300px;
+
+    /*augmente l'interieur ou extérieur?*/
+    padding-top: 20px;
+    padding-bottom: 20px;
+    /*espace en haut? je sais plus*/
+    margin: 30px auto;
+
+    /*ligne qui contourne le bloc, seulement visible avec un border-style*/
+    border-radius: 5%;
+    border-width: 5%;
+    border-style:groove;
+    border-color: #6c5f4f;
+
+    background-color: #c4e8ff;
 }
 
 #localisation{
+    /*sert à quoi?*/
+    display:block;
+
+    margin-left:auto;
+    margin-right:auto;
+    margin-top: 4%;
+    margin-bottom: 7%;
+    width: 70%;
+    appearance: none;
+
+    border-radius: 10%;
+    border-color: cornsilk;
+    border-style:initial;
+
+   
+
+    font-family: "terminal";
+    font-size: medium;
+    text-align: center;
+    background-color:cornsilk;
+}
+
+#loadicon{
+    /*display block nécessaire pour faire fonctionner les autres paramètres*/
     display:block;
     margin-left:auto;
     margin-right:auto;
-    font-family: "terminal";
-    font-size: medium;
-    background-color:cornsilk;
-    border-radius: 10%;
-    border-color: #f5f5f5;
+    margin-top: 20%;
+    margin-bottom: 5%;
+    width:25%;
+   
+    /*50%=cercle*/
+    border-radius: 50%;
 }
 
 #weathericon{
     display:block;
     margin-left:auto;
     margin-right:auto;
-    width:25%;
+    margin-top: -5%;
+    margin-bottom: -7%;
+    width:55%;
 }
 
 #description {
+    /*paramètre pour utiliser justify content et align items?*/
     display:flex;
+
     /*centre horizontalement*/
     justify-content:center;
     /*centre verticalement*/
     align-items:center;
-    background-color: aliceblue;
 }
 
 #tempblock{
+
     display:flex;
-    /*centre horizontalement*/
+
     justify-content:center;
-    /*centre verticalement*/
     align-items:center;
-    background-color: beige;
 }
 
