@@ -37,6 +37,7 @@
                     // finds the paragraph (with the id "textblock" we defined) and changes its text from loading... to the const weather)
                     document.getElementById("description").textContent = weather;
                     document.getElementById("tempblock").textContent = formattedtemp + "°";
+                    document.getElementById("cityname").textContent=""
                     })
                  }
                  if(localisation == "Louvain-la-Neuve") {
@@ -61,6 +62,7 @@
                     // finds the paragraph (with the id "textblock" we defined) and changes its text from loading... to the const weather)
                     document.getElementById("description").textContent = weather;
                     document.getElementById("tempblock").textContent = formattedtemp + "°";
+                    document.getElementById("cityname").textContent=""
                     })
                  }
                  if(localisation == "Neuchâtel") {
@@ -85,19 +87,24 @@
                     // finds the paragraph (with the id "textblock" we defined) and changes its text from loading... to the const weather)
                     document.getElementById("description").textContent = weather;
                     document.getElementById("tempblock").textContent = formattedtemp + "°";
+                    document.getElementById("cityname").textContent=""
                     })
                  }
                  if (localisation ==""){
                   document.querySelector("img").setAttribute("id", "loadicon")
                     document.querySelector("img").src="assets/9.gif"
-                    document.getElementById("description").textContent="looking for something?"
-                    document.getElementById("tempblock").textContent="select a city"
+                    document.getElementById("description").textContent=""
+                    document.getElementById("tempblock").textContent=""
                  }
                 }
                 //fonction qui recupère la géolocalisation du user
                 function requestLocation() {
                 // changer l'image ici pour avoir une image de chargement
-                document.querySelector("img").src="assets\livasmol-loading-cat-2652232162.gif"
+                document.querySelector("img").setAttribute("id", "loadicon")
+                document.querySelector("img").src="assets/Cat Kitty GIF.gif"
+                document.getElementById("description").textContent="je réflechis..."
+                document.getElementById("tempblock").textContent=""
+                document.getElementById("cityname").textContent=""
 
 
                   // navigator.geolocation est une fonctionnalité du browser qu'on appelle
@@ -125,11 +132,19 @@
                     const formattedtemp = Number(temp).toFixed(0).replace('.', ',');
                     // selects the <img> and changes its source with the const icon we defined earlier
                     document.querySelector("img").src = icon 
+                    document.querySelector("img").setAttribute("id", "weathericon")
                     // finds the paragraph (with the id "textblock" we defined) and changes its text from loading... to the const weather)
                     document.getElementById("description").textContent = weather;
                     document.getElementById("tempblock").textContent = formattedtemp + "°";
                     }
                     )
+                    fetch (url)
+                    .then (response => response.json())
+                    .then (locationdata =>{
+                      // locationdata.city.name describes a path: it says "store in "city" whatever you found in name under city under locationdata (we defined locationdata juste above, a parameter that stores the response we fetched from the api)
+                    const city = locationdata.city.name;
+                    document.getElementById("cityname").textContent = city;
+                    })
                         }
                       meteogps(lat, lon);
                      })

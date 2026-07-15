@@ -76,6 +76,16 @@ body {
     width:55%;
 }
 
+#cityname{
+    /*paramètre pour utiliser justify content et align items?*/
+    display:flex;
+
+    /*centre horizontalement*/
+    justify-content:center;
+    /*centre verticalement*/
+    align-items:center;
+}
+
 #description {
     /*paramètre pour utiliser justify content et align items?*/
     display:flex;
