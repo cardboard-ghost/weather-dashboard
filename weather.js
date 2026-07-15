@@ -101,7 +101,7 @@
                 //fonction qui recupère la géolocalisation du user
                 function requestLocation() {
                 // changer l'image ici pour avoir une image de chargement
-                document.querySelector("img").setAttribute("id", "loadicon")
+                document.querySelector("img").setAttribute("id", "loadcat")
                 document.querySelector("img").src="assets/Cat Kitty GIF.gif"
                 document.getElementById("description").textContent="je réflechis..."
                 document.getElementById("tempblock").textContent=""
