@@ -95,6 +95,7 @@
                     document.querySelector("img").src="assets/9.gif"
                     document.getElementById("description").textContent=""
                     document.getElementById("tempblock").textContent=""
+                    document.getElementById("cityname").textContent=""
                  }
                 }
                 //fonction qui recupère la géolocalisation du user
